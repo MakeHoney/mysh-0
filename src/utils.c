@@ -12,7 +12,7 @@ void mysh_parse_command(const char* command,
 	int SIZEOFSTRING = sizeof(char);
 	*argc = 0;
 
-	argv[0] = (char**)malloc(sizeof(char*));
+	argv[0] = (char**)malloc(sizeof(char*) * 20);
 	
 	for (int i = 0; command[i] != '\0'; i++) {
 		if(command[i] == ' ' || command[i] == '\n' || command[i] == '\t')
@@ -34,7 +34,7 @@ void mysh_parse_command(const char* command,
 	}
 
 	if(blankFlag == 0){
-		argv[0][0] = (char*)malloc(sizeof(char) * 50);
+		argv[0][0] = (char*)malloc(sizeof(char));
 		strcpy(argv[0][0], "");
 		(*argc)++;
 	}
